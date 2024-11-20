@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collage Movies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2c2c2c;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .header {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .image-grid div {
+      background-color: gray;
+      height: 150px;
+      border-radius: 8px;
+    }
+
+    .input-section {
+      margin: 20px 0;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    button {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    .answer {
+      margin-top: 20px;
+      font-size: 18px;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      << Collage Movies #3 >>
+    </div>
+
+    <div class="image-grid">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div class="input-section">
+      <input type="text" id="userGuess" placeholder="Your guess here">
+      <button id="guessBtn">Guess</button>
+    </div>
+
+    <div>
+      <button id="hintGenre">Hint - Genre</button>
+      <button id="hintDecade">Hint - Decade</button>
+    </div>
+
+    <div class="answer" id="answerText">
+      Answer: The Lord of the Rings (1999)
+    </div>
+  </div>
+
+  <script>
+    const correctAnswer = "The Lord of the Rings (1999)";
+    const guessBtn = document.getElementById("guessBtn");
+    const userGuess = document.getElementById("userGuess");
+    const answerText = document.getElementById("answerText");
+    const hintGenre = document.getElementById("hintGenre");
+    const hintDecade = document.getElementById("hintDecade");
+
+    guessBtn.addEventListener("click", () => {
+      if (userGuess.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+        answerText.style.visibility = "visible";
+      }
+    });
+
+    hintGenre.addEventListener("click", () => {
+      hintGenre.innerText = "Fantasy";
+      hintGenre.disabled = true;
+    });
+
+    hintDecade.addEventListener("click", () => {
+      hintDecade.innerText = "1990s";
+      hintDecade.disabled = true;
+    });
+  </script>
+</body>
+</html>
+How it works:
